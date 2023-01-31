@@ -1,4 +1,4 @@
-# PythonSympleCalculator
+# PyCalc
 -- PyCalc is a Calculator from python 
 
 
