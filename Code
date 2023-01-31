@@ -1,23 +1,29 @@
 def calculator():
     operation = input("Selecione uma operação (+, -, *, /, %): ")
-    num1 = float(input("Digite o primeiro número: "))
-    num2 = float(input("Digite o segundo número: "))
+    try:
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+    except ValueError:
+        print("Por favor, digite um número válido.")
+        return
 
     if operation == '+':
-        print(num1 + num2)
-
+        result = num1 + num2
     elif operation == '-':
-        print(num1 - num2)
-
+        result = num1 - num2
     elif operation == '*':
-        print(num1 * num2)
-
+        result = num1 * num2
     elif operation == '/':
-        print(num1 / num2)
-
+        if num2 == 0:
+            print("Não é possível dividir por zero.")
+            return
+        result = num1 / num2
     elif operation == '%':
-        print(num1 % num2)
+        result = num1 % num2
     else:
-        print("Função Invalida")
+        print("Operação inválida. Por favor, selecione (+, -, *, /, %).")
+        return
+
+    print("Resultado:", result)
 
 calculator()
