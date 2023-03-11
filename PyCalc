@@ -1,14 +1,20 @@
 import numpy as np
 
+
 def calculator():
+    # Operadores matemáticos binários (+, -, *, /, %, ^)
+    binary_operations = ['+', '-', '*', '/', '%', '^']
+    # Operadores matemáticos unários (sin, cos, tan, log)
+    unary_operations = ['sin', 'cos', 'tan', 'log']
+
+    print("Bem-vindo(a) à calculadora!")
     while True:
-        operations = ['+', '-', '*', '/', '%', '^', 'sin', 'cos', 'tan', 'log']
         operation = input("Selecione uma operação (+, -, *, /, %, ^, sin, cos, tan, log) ou 'q' para sair: ")
         if operation == 'q':
             print("Encerrando a calculadora.")
             break
-        if operation not in operations:
-            print(f"Operação inválida. Por favor, selecione uma das seguintes operações: {operations}")
+        if operation not in binary_operations + unary_operations:
+            print(f"Operação inválida. Por favor, selecione uma das seguintes operações: {binary_operations + unary_operations}")
             continue
 
         try:
@@ -17,7 +23,7 @@ def calculator():
             print("Por favor, digite um número válido.")
             continue
 
-        if operation in ['sin', 'cos', 'tan', 'log']:
+        if operation in unary_operations:
             if operation == 'log':
                 try:
                     base = float(input("Digite a base do logaritmo: "))
@@ -27,7 +33,7 @@ def calculator():
                 result = np.log(num1) / np.log(base)
             else:
                 result = getattr(np, operation)(num1)
-            print(f"Resultado: {result}")
+            print(f"Resultado: {result:.2f}")
             continue
 
         try:
@@ -53,31 +59,7 @@ def calculator():
         else:  # operation == '^'
             result = num1 ** num2
 
-        print(f"Resultado: {result}")
+        print(f"Resultado: {result:.2f}")
+
 
 calculator()
-
-        
-    
-    
-         
-    
-        
-        
-
-    
-        
-        
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-     
